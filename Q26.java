@@ -19,9 +19,10 @@ class MethodNotFoundException extends Exception
 public class Q26 
 {
     public static void main(String[] args) throws ClassNotFoundException {
+        student obj = new student();
         try 
         {
-            student obj = new student();
+            Class.forName("student");
             try 
             {
                 obj.method();
@@ -31,9 +32,13 @@ public class Q26
                 System.out.println("Method not found: " + e);
             }
         } 
+            catch(ClassNotFoundException e)
+            {
+                System.out.println("Class not found: " + e);
+            }
         finally 
         {
-            System.out.println("Thank You!");
+            System.err.println("Thank You!");
         }
     }
 }
